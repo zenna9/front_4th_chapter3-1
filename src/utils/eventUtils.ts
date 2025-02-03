@@ -24,9 +24,20 @@ function filterEventsByDateRangeAtWeek(events: Event[], currentDate: Date) {
   return filterEventsByDateRange(events, weekDates[0], weekDates[6]);
 }
 
+// 수정 : event는 시간을 가지기 때문에 시간이 00:00:00으로 되어있는 종료일과 날짜가 겹치는 경우
+//        필터에서 걸리는 버그 발견하여 수정합니다.
 function filterEventsByDateRangeAtMonth(events: Event[], currentDate: Date) {
   const monthStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-  const monthEnd = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+  // const monthEnd = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+  const monthEnd = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0,
+    23,
+    59,
+    59,
+    59
+  );
   return filterEventsByDateRange(events, monthStart, monthEnd);
 }
 
