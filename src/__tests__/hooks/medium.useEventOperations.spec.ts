@@ -39,7 +39,7 @@ it('정의된 이벤트 정보를 기준으로 적절하게 저장이 된다(POS
     notificationTime: 1, // 분 단위로 저장
   };
   await act(async () => {
-    await result.current.saveEvent(eventData);
+    await result.current.saveEvent(eventData); //#1
   });
   console.log(result);
   await waitFor(() => {

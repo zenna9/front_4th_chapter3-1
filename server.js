@@ -25,6 +25,7 @@ app.get('/api/events', async (_, res) => {
 app.post('/api/events', async (req, res) => {
   const events = await getEvents();
   const newEvent = { id: randomUUID(), ...req.body };
+  console.log('hㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ');
 
   fs.writeFileSync(
     `${__dirname}/src/__mocks__/response/realEvents.json`,
