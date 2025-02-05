@@ -2,6 +2,7 @@ import { act, screen, renderHook, waitFor } from '@testing-library/react';
 import { http, HttpResponse } from 'msw';
 
 import {
+  initMockupEvents,
   setupMockHandlerCreation,
   setupMockHandlerDeletion,
   setupMockHandlerUpdating,
@@ -12,7 +13,13 @@ import { Event, EventForm } from '../../types.ts';
 import { setupServer } from 'msw/node';
 import { events } from '../../__mocks__/response/events.json';
 
+let mockEvents: Event[];
 beforeAll(() => server.listen());
+beforeEach(() => {
+  mockEvents = initMockupEvents();
+  console.log('events!!', mockEvents);
+  // setupMockHandlerCreation(events as Event[]);
+});
 afterAll(() => server.close());
 
 it('저장되어있는 초기 이벤트 데이터를 적절하게 불러온다(GET)', async () => {

@@ -16,7 +16,8 @@ export const handlers = [
   http.post('/api/events', async ({ request }) => {
     const newEvent = (await request.json()) as Event;
     newEvent.id = String(events.length + 1);
-    return HttpResponse.json(newEvent, { status: 201 });
+    const hResponse = HttpResponse.json(newEvent, { status: 201 });
+    return hResponse;
   }),
 
   //일정 수정
