@@ -34,7 +34,7 @@ export const setupMockHandlerUpdating = (initEvents = [] as Event[], updatedEven
     http.get('/api/events', () => {
       return HttpResponse.json({ events: mockEvents });
     }),
-    http.put('/api/events/:id', async ({ params: { id }, request }) => {
+    http.put('/api/events/:id', async ({ params: { id } }) => {
       const eventIndex = mockEvents.findIndex((event) => event.id === id);
       if (eventIndex !== -1) {
         mockEvents[eventIndex] = { ...mockEvents[eventIndex], ...updatedEvent };
@@ -52,7 +52,7 @@ export const setupMockHandlerDeletion = (initEvents = [] as Event[]) => {
     http.get('/api/events', () => {
       return HttpResponse.json({ events: mockEvents });
     }),
-    http.delete('/api/events/:id', async ({ params: { id }, request }) => {
+    http.delete('/api/events/:id', async ({ params: { id } }) => {
       const eventIndex = mockEvents.findIndex((event) => event.id === id);
       if (eventIndex !== -1) {
         mockEvents.splice(eventIndex, 1);

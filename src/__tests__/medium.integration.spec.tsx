@@ -1,12 +1,12 @@
-import { ChakraProvider } from '@chakra-ui/react';
-import { render, screen, within, act } from '@testing-library/react';
-import { UserEvent, userEvent } from '@testing-library/user-event';
-import { http, HttpResponse } from 'msw';
-import { ReactElement } from 'react';
+// import { ChakraProvider } from '@chakra-ui/react';
+// import { render, screen, within, act } from '@testing-library/react';
+// import { UserEvent, userEvent } from '@testing-library/user-event';
+// import { http, HttpResponse } from 'msw';
+// import { ReactElement } from 'react';
 
-import App from '../App';
-import { server } from '../setupTests';
-import { Event } from '../types';
+// import App from '../App';
+// import { server } from '../setupTests';
+// import { Event } from '../types';
 
 describe('일정 CRUD 및 기본 기능', () => {
   it('입력한 새로운 일정 정보에 맞춰 모든 필드가 이벤트 리스트에 정확히 저장된다.', async () => {

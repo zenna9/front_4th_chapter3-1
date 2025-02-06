@@ -1,4 +1,4 @@
-import { act, render, renderHook, RenderHookResult } from '@testing-library/react';
+import { act, renderHook, RenderHookResult } from '@testing-library/react';
 
 import { useCalendarView } from '../../hooks/useCalendarView.ts';
 import { assertDate } from '../utils.ts';
